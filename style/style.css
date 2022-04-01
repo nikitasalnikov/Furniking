@@ -397,7 +397,6 @@ span {
 
 .slider__line {
   display: flex;
-  overflow: hidden;
 }
 
 .slider__slide {
@@ -500,7 +499,7 @@ span {
   position: relative;
 }
 
-.slider__dot {
+.swiper-pagination-bullet {
   position: relative;
   width: 12px;
   height: 12px;
@@ -510,7 +509,7 @@ span {
   cursor: pointer;
 }
 
-.slider__dot.active {
+.swiper-pagination-bullet-active {
   width: 24px;
   background: var(--greencolor);
   /* height: 9px; */
@@ -636,23 +635,19 @@ span {
 
 .main__trends-slider {
   width: 100%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   overflow: hidden;
 }
 
 .main__trends-line {
-  display: grid;
   transition: 1s all ease;
   width: 100%;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 8px;
 }
 
 .main__trends-slide {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 27px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .main__trends-title {
@@ -789,23 +784,23 @@ span {
 }
 
 .main__trends-dots {
-  bottom: 0;
+  position: static;
   margin-top: 60px;
   display: flex;
   justify-content: center;
 }
-
-.main__trends-dot {
-  font-size: 24px;
-  color: var(--lightgrey);
-  cursor: pointer;
+.main__trends-dots .swiper-pagination-bullet {
+  background: none;
+  background-image: url(../images/Circle.png);
+  width: 24px;
+  height: 24px;
 }
-
-.main__trends-dot.active {
-  color: var(--greencolor);
-  pointer-events: none;
+.main__trends-dots .swiper-pagination-bullet-active {
+  background: none;
+  background-image: url(../images/Circle-green.png);
+  width: 24px;
+  height: 24px;
 }
-
 .main__trends-dot:not(:last-child) {
   margin-right: 15px;
 }
@@ -846,6 +841,7 @@ span {
 
 .main__special {
   margin-top: 100px;
+  position: relative;
 }
 
 .main__special-title {
@@ -1077,10 +1073,7 @@ span {
   position: relative;
   margin-top: 40px;
 }
-.main__review-sliderLine {
-  max-height: 315px;
-  height: 100%;
-}
+
 .main__review-slide {
   padding: 0;
   display: flex;
@@ -1090,18 +1083,22 @@ span {
 .slider__prev,
 .slider__next {
   position: absolute;
-  top: 50%;
+  top: 65%;
   cursor: pointer;
 }
-
-.slider__prev {
-  left: -55px;
+.swiper-button-prev {
+  left: 125px;
+}
+.swiper-button-next {
+  right: 125px;
 }
 
-.slider__next {
-  right: -55px;
+.swiper-button-prev:after {
+  content: url(../images/arrow-left.png);
 }
-
+.swiper-button-next:after {
+  content: url(../images/arrow-right.png);
+}
 .main__review-photo {
   position: absolute;
   top: -40px;
